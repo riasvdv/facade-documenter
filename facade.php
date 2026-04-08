@@ -312,7 +312,11 @@ function resolveDocblockTypes($method, $typeNode, $depth = 1)
                 return (string) $typeNode;
             }
 
-            if (in_array($typeNode->name, ['class-string', 'uppercase-string'], strict: true)) {
+            if ($typeNode->name === 'class-string') {
+                return 'class-string';
+            }
+
+            if ($typeNode->name === 'uppercase-string') {
                 return 'string';
             }
 
